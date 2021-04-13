@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  width: 70vw;
+  margin: 20px auto;
+}
+
+.main__title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.modal__window h1 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.vmodal {
+  margin: 200px auto;
+  border: 2px solid #eee;
+  width: 450px;
+  padding: 10px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.modal__window p {
+  margin: 5px 0;
+}
+
+.modal__footer {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal__footer button {
+  justify-self: flex-end;
+  margin-left: 10px;
+}
+
+
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
