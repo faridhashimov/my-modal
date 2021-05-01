@@ -4,12 +4,66 @@
   padding: 0;
 }
 
-.vmodal {
+body {
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 .main {
+  display: flex;
   width: 70vw;
   margin: 20px auto;
+}
+
+a {
+  cursor: pointer;
+  
+}
+
+.main .card {
+  margin: 10px;
+  width: 350px;
+  border: 1px solid #ddd;
+  padding: 10px 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.3);
+}
+
+.main .card img {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.main .card:hover {
+  transform: scale(1.1);
+}
+
+.main .card .card-body {
+  margin-bottom: 5px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.main .card .card-body .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.main .card .card-body .card-text {
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+
+.main .card .btn {
+  font-size: .8rem;
+  display: inline-block;
+  border-radius: 3px;
+  padding: 10px 20px;
+  background: red;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .main__title {
@@ -28,7 +82,7 @@
 }
 
 .modal__window {
-  background: #FEF9E7;
+  background: #fef9e7;
   margin: 100px auto;
   width: 450px;
   padding: 10px;
@@ -70,7 +124,7 @@
 
 .modal__body p {
   margin: 5px 0;
-  font-size: .90rem;
+  font-size: 0.9rem;
 }
 
 .modal__footer {
@@ -88,8 +142,4 @@
 
 .card__img {
   width: 100%;
-}
-
-.btn:not(:disabled):not(.disabled) {
-  cursor: pointer;
 }

@@ -23,12 +23,12 @@ let createModal = () => {
   return modal;
 };
 
-createModal();
+// createModal();
 
 const modalOverlay = document.querySelector(".modal__overlay"),
   modalWindow = document.querySelector(".modal__window");
 
-const openModal = {
+const modal = {
   open() {
     modalWindow.classList.add("open");
     modalWindow.classList.remove("hide");
@@ -44,56 +44,61 @@ const openModal = {
 };
 
 // let modalID = setTimeout(() => {
-//   openModal.open();
+//   modal.open();
 // }, 1000);
 
 function closeModal() {
   let closeBtn = document.querySelector(".modal__header-close");
   modalOverlay.addEventListener("click", (e) => {
     if (e.target === closeBtn || e.target === modalOverlay) {
-      openModal.close();
+      modal.close();
     }
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.code == "Escape") {
-      openModal.close();
+      modal.close();
     }
   });
 }
 
 class addElementToPage {
-  constructor(img, title, description, parentElement) {
+  constructor(img, title, description, parentSelector) {
     this.img = img;
     this.title = title;
     this.description = description;
-    this.parentElement = parentElement;
+    this.parent = document.querySelector(parentSelector);
   }
 
   render() {
-   let cardWrapper =  document.querySelector(this.parentElement);
-   cardWrapper.innerHTML = `
-    <div class="card"> 
-      <div class="card" style="width: 18rem;">
-        <img src="${this.img}" class="card-img-top card__img" alt="...">
+    let cardWrapper = document.createElement("div");
+    cardWrapper.classList.add("card");
+    cardWrapper.innerHTML = `
+        <img src="${this.img}" class="card__img" alt="...">
         <div class="card-body">
           <h5 class="card-title">${this.title}</h5>
           <p class="card-text">${this.description}</p>
-          <a href="#" class="btn btn-primary">Remove food</a>
         </div>
-      </div>
-    </div>
+        <a href="#" class="btn">Remove food?</a>
     `;
+    this.parent.append(cardWrapper);
   }
 }
 
-fetch("db.json")
-  .then((res) => res.json())
-  .then((data) => {
-    let newEl = new addElementToPage(data.potato.img, data.potato.title, data.potato.description, ".main" );
-    newEl.render();
-    console.log(data.potato.title);
-  })
-  .catch((err) => console.log(err));
+const getResources = async (url) => {
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`Could not fetch ${url}, status ${res.status}`);
+  }
+  return await res.json();
+};
+
+getResources("http://localhost:3000/foods").then((data) => {
+  console.log(data);
+  data.forEach(({ img, title, description }) => {
+    new addElementToPage(img, title, description, ".main").render();
+  });
+});
 
 closeModal();

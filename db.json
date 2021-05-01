@@ -1,17 +1,19 @@
 {
-    "potato": {
-        "img": "/images/potato.jpg",
-        "title": "Potato",
-        "description": "A potato is a root vegetable, the Solanum tuberosum. It is a small plant with large leaves. The part of the potato that people eat is a tuber that grows under the ground."
-    },
-    "pepper": {
-        "img": "/images/pepper.jpg",
-        "title": "Pepper",
-        "description": "Capsicum is a genus of plants from the nightshade family (Solanaceae). Some of these plants are used as spices, vegetables, or drugs."
-    },
-    "eggplant": {
-        "img": "/images/eggplant.jpg",
-        "title": "Eggplant",
-        "description": "The aubergine (also called eggplant) is a plant. Its fruit is eaten as a vegetable. The plant is in the nightshade family of plants. It is related to the potato and tomato."
-    }
+    "foods": [
+        {
+            "img": "/images/potato.jpg",
+            "title": "Potato",
+            "description": "A potato is a root vegetable, the Solanum tuberosum. It is a small plant with large leaves. The part of the potato that people eat is a tuber that grows under the ground."
+        },
+        {
+            "img": "/images/pepper.jpg",
+            "title": "Pepper",
+            "description": "Capsicum is a genus of plants from the nightshade family (Solanaceae). Some of these plants are used as spices, vegetables, or drugs."
+        },
+        {
+            "img": "/images/eggplant.jpg",
+            "title": "Eggplant",
+            "description": "The aubergine (also called eggplant) is a plant. Its fruit is eaten as a vegetable. The plant is in the nightshade family of plants. It is related to the potato and tomato."
+        }
+    ]
 }
