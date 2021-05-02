@@ -33,10 +33,6 @@ a {
   margin: 10px auto;
 }
 
-.main .card:hover {
-  transform: scale(1.1);
-}
-
 .main .card .card-body {
   margin-bottom: 5px;
   height: 150px;
@@ -55,15 +51,30 @@ a {
   margin-bottom: 10px;
 }
 
-.main .card .btn {
+.btn {
   font-size: .8rem;
   display: inline-block;
   border-radius: 3px;
   padding: 10px 20px;
-  background: red;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  opacity: .7;;
+}
+
+.btn-success {
+  background: green;
+}
+
+.btn-danger {
+  background: red;
+}
+.btn-remove {
+  background: teal;
 }
 
 .main__title {
@@ -79,6 +90,7 @@ a {
   bottom: 0;
   background: rgba(0, 0, 0, 0);
   transition: background 0.2s ease-in;
+  z-index: -1000;
 }
 
 .modal__window {
@@ -99,16 +111,23 @@ a {
   transform: translateY(100px);
 }
 
-.modal__window.hide {
+.modal__window.hide {   
   transform: translateY(-400px);
+  
 }
 
 .modal__overlay.open {
   background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 .modal__overlay.hide {
   background: rgba(0, 0, 0, 0);
+  z-index: -1000;
+}
+
+.modal__overlay.fade{
+  z-index: 1000;
 }
 
 .modal__header {

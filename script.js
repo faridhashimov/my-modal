@@ -5,15 +5,14 @@ let createModal = () => {
     <div class="modal__overlay">
       <div class="modal__window">
         <div class="modal__header">
-          <h1> Welcome to our community </h1>
+          <h1> Removing card from page </h1>
           <span class="modal__header-close">&times;</span>
         </div>
         <div class="modal__body">
-          <p>Lisicing elit. Deleniti, dolorum.</p>
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
+          <p>Are you sure?</p>
         </div>
         <div class="modal__footer">
-          <button class="btn btn-success">OK</button>
+          <button class="btn btn-success">Yes</button>
           <button class="btn btn-danger">Cancel</button>
         </div>
       </div>
@@ -23,7 +22,7 @@ let createModal = () => {
   return modal;
 };
 
-// createModal();
+createModal();
 
 const modalOverlay = document.querySelector(".modal__overlay"),
   modalWindow = document.querySelector(".modal__window");
@@ -40,6 +39,7 @@ const modal = {
     modalWindow.classList.remove("open");
     modalOverlay.classList.add("hide");
     modalOverlay.classList.remove("open");
+    modalOverlay.classList.add("fade");
   },
 };
 
@@ -50,8 +50,15 @@ const modal = {
 function closeModal() {
   let closeBtn = document.querySelector(".modal__header-close");
   modalOverlay.addEventListener("click", (e) => {
-    if (e.target === closeBtn || e.target === modalOverlay) {
+    if (
+      e.target === closeBtn ||
+      e.target === modalOverlay ||
+      e.target.classList.contains("btn-danger")
+    ) {
       modal.close();
+      setTimeout(() => {
+        modalOverlay.classList.remove("fade");
+      }, 1000);
     }
   });
 
@@ -79,7 +86,7 @@ class addElementToPage {
           <h5 class="card-title">${this.title}</h5>
           <p class="card-text">${this.description}</p>
         </div>
-        <a href="#" class="btn">Remove food?</a>
+        <button class="btn btn-remove">Remove food?</button>
     `;
     this.parent.append(cardWrapper);
   }
@@ -101,4 +108,10 @@ getResources("http://localhost:3000/foods").then((data) => {
   });
 });
 
-closeModal();
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-remove")) {
+    e.preventDefault();
+    modal.open();
+    closeModal();
+  }
+});
